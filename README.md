@@ -25,13 +25,16 @@ make install-deps
 
 ## Como compilar?
 No Linux:
-* A compilação do código C em uma biblioteca compartilhada (`.so`) é feita utilizando o `Makefile`. Abra um terminal na pasta raiz do projeto e execute o seguinte comando:
+* A compilação do código C em uma biblioteca compartilhada (`.so`) é feita utilizando o `Makefile`. No terminal, basta executar o seguinte comando:
 ```bash
 make
 ```  
 
 No Windows:
+* A compilação deve ser feita manualmente com o comando a seguir para gerar a biblioteca compartilhada:
+```PowerShell
 * gcc -shared -o mandelbrot.dll mandelbrot.c -O2
+```  
 
 ## Como executar?
 No Linux:
