@@ -1,5 +1,5 @@
-# Fractal de Mandelbrot
-**Trabalho 2 de Conceitos de Linguagem de Programação**
+# Fractal de Mandelbrot  
+**Trabalho 2 de Conceitos de Linguagem de Programação**  
 **Eduarda Pereira Medeiros (23100449)**  
 
 
