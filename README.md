@@ -1,6 +1,7 @@
 # Fractal de Mandelbrot
-## Trabalho 2 de Conceitos de Linguagem de Programação
-Eduarda Pereira Medeiros (23100449)
+**Trabalho 2 de Conceitos de Linguagem de Programação
+Eduarda Pereira Medeiros (23100449)**
+
 
 A aplicação prática desenvolvida gera fractais de Mandelbrot e exibe-os na tela. Para implementar os cálculos necessários, um código na linguagem C foi elaborado, e para o desenvolvimento de uma interface com o usuário, a linguagem Python foi a escolhida.
 
