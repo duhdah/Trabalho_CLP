@@ -23,5 +23,23 @@ Os arquivos que compõem o repositório estão listados a seguir:
 make install-deps
 ```
 
+## Como compilar?
+No Linux:
+* A compilação do código C em uma biblioteca compartilhada (`.so`) é feita utilizando o `Makefile`. Abra um terminal na pasta raiz do projeto e execute o seguinte comando:
+```bash
+make
+```  
 
+No Windows:
+* gcc -shared -o mandelbrot.dll mandelbrot.c -O2
 
+## Como executar?
+No Linux:
+```bash
+make run
+```  
+
+No Windows:
+```PowerShell
+python interface.py
+```
