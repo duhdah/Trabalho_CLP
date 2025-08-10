@@ -33,7 +33,7 @@ make
 No Windows:
 * A compilação deve ser feita manualmente com o comando a seguir para gerar a biblioteca compartilhada:
 ```PowerShell
-* gcc -shared -o mandelbrot.dll mandelbrot.c -O2
+gcc -shared -o mandelbrot.dll mandelbrot.c -O2
 ```  
 
 ## Como executar?
