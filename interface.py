@@ -4,6 +4,33 @@ import ctypes
 import numpy as np
 from PIL import Image, ImageTk  
 
+"""
+    -----------------
+    Interface Gráfica
+    -----------------
+
+    A implementação da interface gráfica foi feita com a linguagem Python.
+
+    Bibliotecas utilizadas:
+    - Tkinter: Criação da interface. Permite a interação do usuário com o aplicativo.
+    - ctypes: Conexão entre as linguagens Python e C. Permite carregar a biblioteca compartilhada e chamar a função de cálculo do fractal.
+    - Pillow: Manipulação de imagens.
+    - numPy: Operações numéricas e manipulação de arrays.
+
+    Métodos desenvolvidos:
+    - __init__: Construtor. Define o valor das variáveis iniciais e chama as demais funções.
+    - inicializa_UI: Cria e posiciona os elementos principais da interface (botões, frames e textos).
+    - modifica_zoom: Vincula os eventos do mouse aos métodos 'clica_mouse', 'arrasta_mouse' e 'solta_mouse',
+    responsáveis por ampliar a área visualizada do fractal de Mandelbrot de acordo com a interação do usuário.
+    - redimensionando: Método chamado repetidamente enquanto a janela é redimensionada. Usa um temporizador para gerar
+    novamente o fractal apenas uma vez quando o usuário para de ajustar a janela.
+    - redimensionar: Altera a largura e a altura da área de visualização do fractal de modo que o espaço disponível
+    seja utilizado de forma eficiente.
+    - resetar: Restaura os valores padrão das variáveis e reinicia a visualização do fractal.
+    - gerar_fractal: Chama a função feita em C para gerar o fractal e atualiza a interface com a nova imagem.
+"""
+
+
 # Valores padrões definidos para as coordenadas:
 X_MIN_DEFAULT, X_MAX_DEFAULT = -2.0, 1.0
 Y_MIN_DEFAULT, Y_MAX_DEFAULT = -1.5, 1.5

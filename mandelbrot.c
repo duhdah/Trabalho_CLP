@@ -5,7 +5,9 @@
     Função mandelbrot
     -----------------
 
-    Gera a representação numérica do conjunto de Mandelbrot para uma determinada região
+    A parte do trabalho que implementa um serviço de cálculo foi feita com a linguagem C.
+
+    A implementação gera a representação numérica do conjunto de Mandelbrot para uma determinada região
     do plano complexo, armazenando o número de iterações de cada pixel até a divergência.
 
     Parâmetros:
