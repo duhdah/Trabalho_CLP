@@ -11,7 +11,7 @@ Os arquivos que compõem o repositório estão listados a seguir:
 * `interface.py`: Interface gráfica de usuário desenvolvida em Python com a biblioteca Tkinter. Permite que o usuário defina os próprios parâmetros para a geração do fractal e exibe a imagem resultante.
 * `Makefile`: Arquivo utilizado para compilar o código C e executar o programa.
 * `README.md`: Descrição do repositório.
-* 
+* `Relatório.pdf`: Engloba informações sobre a aplicação escolhida, sobre as linguagens utilizadas e o código desenvolvido.
 
 ## Dependências:
 * Python 3: Interpretador utilizado para executar a aplicação.
