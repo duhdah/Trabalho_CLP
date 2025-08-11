@@ -13,9 +13,12 @@ class Interface_Mandelbrot:
     def __init__(self, janela):
         self.janela = janela
         self.janela.title("Fractal de Mandelbrot")
+        self.janela.rowconfigure(0, weight=1)
+        self.janela.columnconfigure(0, weight=1)
         self.zoom_inicial_x = 0
         self.zoom_inicial_y = 0
         self.id_retangulo = None
+        self.id_redimensionar = None
 
         try:
             # tenta carregar a biblioteca compartilhada (se for Linux):
@@ -37,11 +40,14 @@ class Interface_Mandelbrot:
 
         self.inicializa_UI()
         self.modifica_zoom()
+        self.desenho.bind("<Configure>", self.redimensionando)
 
     # Cria e organiza os elementos da interface:
     def inicializa_UI(self):
         main_frame = ttk.Frame(self.janela, padding="10")
         main_frame.grid(row=0, column=0, sticky="nsew")
+        main_frame.grid_rowconfigure(0, weight=1)
+        main_frame.grid_columnconfigure(1, weight=1)
 
         parametros_frame = ttk.LabelFrame(main_frame)
         parametros_frame.grid(row=0, column=0, padx=5, pady=5, sticky="ew")
@@ -157,6 +163,28 @@ class Interface_Mandelbrot:
             
             self.gerar_fractal()
 
+    # Espera o usuário terminar de redimensionar a janela
+    def redimensionando(self, evento):
+        if self.id_redimensionar:
+            self.janela.after_cancel(self.id_redimensionar)
+        self.id_redimensionar = self.janela.after(300, lambda: self.redimensionar(evento))
+
+    # Atualiza o tamanho real e gera o novo fractal corretamente
+    def redimensionar(self, evento):
+        try: # ignora o redimensionamento ao abrir a janela 
+            largura_atual = int(self.var_largura.get())
+            altura_atual = int(self.var_altura.get())
+            if (evento.width, evento.height) in [(800, 600), (804, 604)]:
+                self.gerar_fractal()
+                return
+            if evento.width == largura_atual and evento.height == altura_atual:
+                return
+        except ValueError:
+            pass
+        self.var_largura.set(str(evento.width))
+        self.var_altura.set(str(evento.height))
+        self.gerar_fractal()
+
     # Retorna ao fractal inicial (Valores padrões)
     def resetar(self):
         self.var_x_min.set(str(X_MIN_DEFAULT))
@@ -168,8 +196,8 @@ class Interface_Mandelbrot:
     # Gera um novo fractal 
     def gerar_fractal(self):
         try:
-            largura = int(self.var_largura.get())
-            altura = int(self.var_altura.get())
+            largura = self.desenho.winfo_width()
+            altura = self.desenho.winfo_height()
             max_iter = int(self.var_max_iter.get())
             x_min = float(self.var_x_min.get())
             x_max = float(self.var_x_max.get())
@@ -198,7 +226,6 @@ class Interface_Mandelbrot:
         imagem_cor = imagem.convert("RGB")
         self.imagem_convertida = ImageTk.PhotoImage(image=imagem_cor)
         self.desenho.delete("all")
-        self.desenho.config(width=largura, height=altura)
         self.desenho.create_image(0, 0, anchor=tk.NW, image=self.imagem_convertida)
 
 # Abre a janela com o fractal inicial
