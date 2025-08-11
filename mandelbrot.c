@@ -26,7 +26,7 @@ void mandelbrot(int largura, int altura, int max_iter, double x_min, double x_ma
             c_imag = y_max - (y_max - y_min) * lin / (altura - 1);
             z_real = 0;
             z_imag = 0;
-            // se o módulo de z² for maior que 4, tá fora do conjunto
+            // se o módulo de z² for maior que 4, está fora do conjunto
             // se chegar até o número máximo de iterações sem estourar esse valor, pertence ao conjunto
             while (z_real * z_real + z_imag * z_imag < 4 && iter < max_iter) {
                 double z_real_novo = z_real * z_real - z_imag * z_imag + c_real;
