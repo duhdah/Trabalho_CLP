@@ -47,3 +47,10 @@ No Windows:
 ```PowerShell
 python interface.py
 ```
+
+## Bônus
+Quando comecei a desenvolver o trabalho, não sabia que a especificação completa estava disponível apenas ao clicar no botão de "Enviar" no e-aula. Eu havia feito um trabalho diferente: Uma implementação do jogo 2048 em C e Python. No entanto, após ler a descrição completa do trabalho, compreendi que a minha ideia original não se enquadraria adequadamente como um serviço de cálculo e optei por descartá-la e desenvolver o projeto atual.
+
+Caso seja de interesse, disponibilizei o meu projeto original em um repositório no link abaixo.
+
+https://github.com/duhdah/Projeto_2048
